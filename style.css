@@ -1,0 +1,68 @@
+*{
+    box-sizing: border-box;
+}
+.img3{
+    padding: 50px;
+    border: 3px solid black;
+    border-radius: 6px;  
+}
+.img3 img{
+   width: 250px;
+   height: 300px;
+   padding: 0;
+   transition: width 0.4s ease-in;
+   border-radius: 6px;
+   margin-left: -5px;
+   opacity: 0.5;
+   transition: all 0.5s ease;
+   vertical-align: middle;
+}
+.img3 img:hover{
+    width: 300px;
+    opacity: 1;
+}
+
+.gallery {
+  display: flex;
+  width: 800px; /* 4 × 200 */
+  padding: 20px;
+  border: 3px solid black;
+}
+
+.item {
+  width: 200px;
+  height: 200px;
+  position: relative;
+  overflow: hidden;
+}
+
+/* real image hidden (used as source only) */
+.item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  visibility: hidden;
+}
+
+/* visual scaling layer */
+.item::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-size: cover;
+  background-position: center;
+  transform: scaleX(1);
+  transform-origin: center;
+  transition: transform 0.4s ease;
+}
+
+/* assign images */
+.item:nth-child(1)::before { background-image: url("https://picsum.photos/id/101/400/400"); }
+.item:nth-child(2)::before { background-image: url("https://picsum.photos/id/102/400/400"); }
+.item:nth-child(3)::before { background-image: url("https://picsum.photos/id/103/400/400"); }
+.item:nth-child(4)::before { background-image: url("https://picsum.photos/id/104/400/400"); }
+
+/* hover effect */
+.item:hover::before {
+  transform: scaleX(1.6);
+}
